@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var findNumberIn2DArray = function (matrix, target) {
+        // 根据数组的特点
+        let n = matrix.length
+        let m = matrix[0]?.length ?? undefined
+        if (!m) {
+          return matrix.indexOf(target)
+        } else {
+          let line = 0,
+            col = m - 1
+          while (line < n && col >= 0) {
+            if (matrix[line][col] > target) {
+              col--
+              continue
+            }
+            if (matrix[line][col] < target) {
+              line++
+              continue
+            }
+            if (matrix[line][col] == target) {
+              return true
+            }
+          }
+          return false
+        }
+      }
+      let arr = []
+      let re = findNumberIn2DArray(arr, 0)
+      console.log(re)
+    </script>
+  </body>
+</html>
